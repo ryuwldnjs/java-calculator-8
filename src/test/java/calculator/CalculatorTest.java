@@ -2,6 +2,7 @@ package calculator;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculatorTest {
@@ -54,4 +55,19 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(10, calculator.calculate("//;\\n1;2,3:4"));
     }
+
+    @Test
+    void 음수를_입력하면_예외를_던진다() {
+        Calculator calculator = new Calculator();
+        assertThatThrownBy(() -> calculator.calculate("-1,2,3"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    void 잘못된_형식의_입력시_예외를_던진다() {
+        Calculator calculator = new Calculator();
+        assertThatThrownBy(() -> calculator.calculate("1;2;3"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
 }

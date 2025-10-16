@@ -22,6 +22,14 @@ public class Calculator {
     }
 
     private int parseNumber(String token) {
-        return Integer.parseInt(token.trim());
+        try {
+            int number = Integer.parseInt(token.trim());
+            if (number < 0) {
+                throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+            }
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 형식의 입력입니다: " + token);
+        }
     }
 }
