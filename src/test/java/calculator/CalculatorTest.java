@@ -42,4 +42,16 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(6, calculator.calculate("1,2:3"));
     }
+
+    @Test
+    void 커스텀_구분자로_숫자의_합을_반환한다() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.calculate("//;\n1;2;3"));
+    }
+
+    @Test
+    void 커스텀_구분자와_기본_구분자를_함께_사용할_수_있다() {
+        Calculator calculator = new Calculator();
+        assertEquals(10, calculator.calculate("//;\n1;2,3:4"));
+    }
 }

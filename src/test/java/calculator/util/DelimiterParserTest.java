@@ -35,4 +35,10 @@ class DelimiterParserTest {
         String[] result = DelimiterParser.parse("//;\n1;2;3");
         assertThat(result).containsExactly("1", "2", "3");
     }
+
+    @Test
+    void 커스텀_구분자와_기본_구분자를_함께_사용할_수_있다() {
+        String[] result = DelimiterParser.parse("//;\n1;2,3:4");
+        assertThat(result).containsExactly("1", "2", "3", "4");
+    }
 }
