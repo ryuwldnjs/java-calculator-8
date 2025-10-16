@@ -29,8 +29,8 @@ public class DelimiterParser {
 
     //커스텀구분자 이후(없으면, 0부터) 문자열 추출
     private static String extractNumbers(String input) {
-        int numberStartIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX) + CUSTOM_DELIMITER_SUFFIX.length() - 1;
-        return input.substring(numberStartIndex + 1);
+        int numberStartIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX) + CUSTOM_DELIMITER_SUFFIX.length();
+        return input.substring(numberStartIndex);
     }
 
     private static String buildCustomDelimiter(String customDelimiter) {
