@@ -5,7 +5,7 @@ public class DelimiterParser {
     //"," 또는 ":" 정규식
     private static final String DEFAULT_DELIMITER = "[,:]";
     private static final String CUSTOM_DELIMITER_PREFIX = "//";
-    private static final String CUSTOM_DELIMITER_SUFFIX = "\n";
+    private static final String CUSTOM_DELIMITER_SUFFIX = "\\n";
 
     public static String[] parse(String input) {
         //커스텀 구분자 존재할경우
@@ -29,7 +29,7 @@ public class DelimiterParser {
 
     //커스텀구분자 이후(없으면, 0부터) 문자열 추출
     private static String extractNumbers(String input) {
-        int numberStartIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX);
+        int numberStartIndex = input.indexOf(CUSTOM_DELIMITER_SUFFIX) + CUSTOM_DELIMITER_SUFFIX.length() - 1;
         return input.substring(numberStartIndex + 1);
     }
 
