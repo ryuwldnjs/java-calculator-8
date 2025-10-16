@@ -29,4 +29,10 @@ class DelimiterParserTest {
         String[] result = DelimiterParser.parse("1");
         assertThat(result).containsExactly("1");
     }
+
+    @Test
+    void 커스텀_구분자로_문자열을_분리한다() {
+        String[] result = DelimiterParser.parse("//;\n1;2;3");
+        assertThat(result).containsExactly("1", "2", "3");
+    }
 }
