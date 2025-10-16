@@ -15,7 +15,7 @@ class CalculatorTest {
     @Test
     void null_입력시_0을_반환한다() {
         Calculator calculator = new Calculator();
-        assertEquals(1, calculator.calculate(null));
+        assertEquals(0, calculator.calculate(null));
     }
 
     @Test
